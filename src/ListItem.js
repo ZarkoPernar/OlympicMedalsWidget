@@ -15,7 +15,9 @@ const ListItem = ({ index, country }) => {
       <td style={defaultStyle}>
         <CountryFlag countryCode={country.code} />
       </td>
-      <td style={defaultStyle}>{country.code}</td>
+      <td style={defaultStyle}>
+        <strong>{country.code}</strong>
+      </td>
       <td style={defaultStyle} align="center">
         {country.gold}
       </td>

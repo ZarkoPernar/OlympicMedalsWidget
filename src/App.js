@@ -6,11 +6,13 @@ import CountryList from './CountryList'
 import { createFetch, injectFetch } from './Fetch'
 
 const styles = {
+  '--primaryColor': '#616161',
   textTransform: 'uppercase',
   display: 'inline-block',
   width: 400,
   border: '1px solid #ccc',
   padding: '.5rem',
+  color: 'var(--primaryColor)',
 }
 
 const headerStyle = {

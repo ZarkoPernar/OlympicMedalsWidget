@@ -1,7 +1,5 @@
 import { addTotal, sortCountries } from './utils'
 
-import testData from './testData.json'
-
 const toCountryCode = country => country.code
 
 describe('addTotal', () => {

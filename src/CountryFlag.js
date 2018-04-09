@@ -4,16 +4,16 @@ import PropTypes from 'prop-types'
 const flagsUrl =
   'https://s3-us-west-2.amazonaws.com/reuters.medals-widget/flags.png'
 
-const flagYOffset = [
+const flagOffsetY = [
   'AUT',
   'BLR',
-  'CAD',
+  'CAN',
   'CHN',
   'FRA',
   'GER',
   'ITA',
   'NED',
-  'FIN',
+  'NOR',
   'RUS',
   'SUI',
   'SWE',
@@ -32,7 +32,7 @@ const style = countryCode => ({
   height: 17,
   backgroundImage: `url(${flagsUrl})`,
   backgroundPositionX: 0,
-  backgroundPositionY: `-${flagYOffset[countryCode]}px`,
+  backgroundPositionY: `-${flagOffsetY[countryCode]}px`,
 })
 
 const CountryFlag = ({ countryCode }) => {
