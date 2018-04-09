@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import './App.css'
-import Menu from './Menu'
+import Menu from './Menu/index'
 
 const styles = {
   display: 'inline-block',
