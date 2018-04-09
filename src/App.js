@@ -10,12 +10,16 @@ const styles = {
 }
 
 class App extends Component {
+  state = {
+    activeSortOption: this.props.activeSortOption || 'gold',
+  }
+
   render() {
     return (
       <div style={styles}>
         <div className="App-header">
           <h2>Medal Count</h2>
-          <Menu />
+          <Menu activeSortOption={this.state.activeSortOption} />
         </div>
 
         <div className="App-main">{/* List */}</div>
