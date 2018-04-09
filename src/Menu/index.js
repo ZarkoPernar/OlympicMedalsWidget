@@ -13,16 +13,32 @@ class Menu extends Component {
   render() {
     return (
       <div style={styles}>
-        <MenuButton isActive={this.props.activeSortOption === 'gold'}>
+        <MenuButton
+          name="gold"
+          isActive={this.props.activeSortOption === 'gold'}
+          onClick={this.props.onMenuSelect}
+        >
           <MedalIcon name="gold" />
         </MenuButton>
-        <MenuButton isActive={this.props.activeSortOption === 'silver'}>
+        <MenuButton
+          name="silver"
+          isActive={this.props.activeSortOption === 'silver'}
+          onClick={this.props.onMenuSelect}
+        >
           <MedalIcon name="silver" />
         </MenuButton>
-        <MenuButton isActive={this.props.activeSortOption === 'bronze'}>
+        <MenuButton
+          name="bronze"
+          isActive={this.props.activeSortOption === 'bronze'}
+          onClick={this.props.onMenuSelect}
+        >
           <MedalIcon name="bronze" />
         </MenuButton>
-        <MenuButton isActive={this.props.activeSortOption === 'total'}>
+        <MenuButton
+          name="total"
+          isActive={this.props.activeSortOption === 'total'}
+          onClick={this.props.onMenuSelect}
+        >
           Total
         </MenuButton>
       </div>
@@ -33,6 +49,7 @@ class Menu extends Component {
 Menu.propTypes = {
   activeSortOption: PropTypes.oneOf(['gold', 'silver', 'bronze', 'total'])
     .isRequired,
+  onMenuSelect: PropTypes.func.isRequired,
 }
 
 export default Menu

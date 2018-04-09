@@ -1,19 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+export const activeBorderColor = '#ccc'
+
 const styles = {
   backgroundColor: 'transparent',
   border: 0,
   padding: '.5rem 1rem',
-  borderTop: '2px solid transparent',
+  borderTopStyle: 'solid',
+  borderTopWidth: '2px',
+  borderTopColor: 'transparent',
 }
 const stylesWithActive = {
   ...styles,
-  borderTopColor: '#ccc',
+  borderTopColor: activeBorderColor,
 }
 const MenuButton = props => {
   return (
-    <button style={props.isActive ? stylesWithActive : styles}>
+    <button
+      role="menuitem"
+      type="button"
+      style={props.isActive ? stylesWithActive : styles}
+      onClick={e => props.onClick(props.name)}
+    >
       {props.children}
     </button>
   )
@@ -21,6 +30,8 @@ const MenuButton = props => {
 
 MenuButton.propTypes = {
   isActive: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default MenuButton
