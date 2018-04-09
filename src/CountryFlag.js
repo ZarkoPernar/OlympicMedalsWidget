@@ -26,8 +26,6 @@ const flagYOffset = [
   {}
 )
 
-console.log(flagYOffset)
-
 const style = countryCode => ({
   display: 'inline-block',
   width: 28,

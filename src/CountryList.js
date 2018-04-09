@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import ListItem from './ListItem'
+import { addTotal, sortCountries } from './utils'
 
 const countryStyle = {
   width: '100%',
@@ -24,7 +25,7 @@ class CountryList extends PureComponent {
           </thead>
           <tbody>
             {this.props.listData
-              .map(addTotals)
+              .map(addTotal)
               .sort(sortCountries(this.props.sortBy))
               .slice(0, 10)
               .map((country, index) => {
@@ -48,22 +49,3 @@ CountryList.propTypes = {
 }
 
 export default CountryList
-
-export function addTotals(country) {
-  return {
-    ...country,
-    total: country.gold + country.silver + country.bronze,
-  }
-}
-
-export function sortCountries(sortBy) {
-  return function sort(a, b) {
-    const secondarySortBy = sortBy === 'gold' ? 'silver' : 'gold'
-
-    if (a[sortBy] === b[sortBy]) {
-      return b[secondarySortBy] - a[secondarySortBy]
-    }
-
-    return b[sortBy] - a[sortBy]
-  }
-}

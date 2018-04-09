@@ -15,15 +15,16 @@ const stylesWithActive = {
   ...styles,
   borderTopColor: activeBorderColor,
 }
-const MenuButton = props => {
+const MenuButton = ({ name, isActive, onClick, children }) => {
   return (
     <button
       role="menuitem"
       type="button"
-      style={props.isActive ? stylesWithActive : styles}
-      onClick={e => props.onClick(props.name)}
+      aria-label={name}
+      style={isActive ? stylesWithActive : styles}
+      onClick={e => onClick(name)}
     >
-      {props.children}
+      {children}
     </button>
   )
 }

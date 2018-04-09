@@ -17,6 +17,9 @@ const headerStyle = {
   borderBottom: '2px solid #ccc',
 }
 const headerTitleStyle = {
+  color: '#9E9E9E',
+  fontSize: '1.35em',
+  fontWeight: 400,
   margin: '0 0 .5rem',
 }
 
@@ -48,7 +51,7 @@ export class App extends Component {
           />
         </div>
 
-        <div className="App-main">
+        <div>
           <Fetch url={dataUrl}>
             {({ isLoading, data, error }) => {
               if (isLoading) {
