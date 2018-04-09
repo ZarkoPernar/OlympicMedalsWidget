@@ -4,10 +4,15 @@ import PropTypes from 'prop-types'
 import MenuButton from './MenuButton'
 import MedalIcon from './MedalIcon'
 
+const styles = {
+  display: 'flex',
+  justifyContent: 'flex-end',
+}
+
 class Menu extends Component {
   render() {
     return (
-      <div className="App-menu">
+      <div style={styles}>
         <MenuButton>
           <MedalIcon name="gold" />
         </MenuButton>

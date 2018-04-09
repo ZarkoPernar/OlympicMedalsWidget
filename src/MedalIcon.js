@@ -6,12 +6,16 @@ export const medalColors = {
   silver: '#9DA7AD',
   bronze: '#81552F',
 }
-
+const styles = {
+  display: 'inline-block',
+  width: '1rem',
+  height: '1rem',
+  borderRadius: '50%',
+}
 const MedalIcon = props => {
   return (
     <span
-      style={{ backgroundColor: getBackgroundColor(props.name) }}
-      className="App-menu__button__icon"
+      style={{ ...styles, backgroundColor: getBackgroundColor(props.name) }}
     />
   )
 }
