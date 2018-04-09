@@ -8,7 +8,7 @@ import { createFetch, injectFetch } from './Fetch'
 const styles = {
   textTransform: 'uppercase',
   display: 'inline-block',
-  width: '800px',
+  width: 400,
   border: '1px solid #ccc',
   padding: '.5rem',
 }
@@ -20,14 +20,13 @@ const headerTitleStyle = {
   margin: '0 0 .5rem',
 }
 
-const flagsUrl =
-  'https://s3-us-west-2.amazonaws.com/reuters.medals-widget/flags.png'
 const dataUrl =
   'https://s3-us-west-2.amazonaws.com/reuters.medals-widget/medals.json'
 
 export class App extends Component {
   state = {
     activeSortOption: this.props.activeSortOption || 'gold',
+    Fetch: createFetch(this.props.fetch),
   }
 
   onMenuSelect = menuOptionName => {
@@ -37,7 +36,7 @@ export class App extends Component {
   }
 
   render() {
-    const Fetch = createFetch(this.props.fetch)
+    const { Fetch } = this.state
 
     return (
       <div style={styles}>
@@ -60,7 +59,12 @@ export class App extends Component {
                 return 'Error'
               }
 
-              return <CountryList listData={data} />
+              return (
+                <CountryList
+                  sortBy={this.state.activeSortOption}
+                  listData={data}
+                />
+              )
             }}
           </Fetch>
         </div>

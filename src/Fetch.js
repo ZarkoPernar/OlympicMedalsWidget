@@ -11,17 +11,31 @@ export function injectFetch(Component, fetch = window.fetch) {
 
 export function createFetch(fetch) {
   return class Fetch extends Component {
+    static propTypes = {
+      url: PropTypes.string.isRequired,
+    }
+
     state = {
       data: null,
       isLoading: true,
       error: null,
     }
+
     componentDidMount() {
       fetch(this.props.url)
         .then(res => res.json())
         .then(data => {
           this.setState({
+            isLoading: false,
             data,
+            error: null,
+          })
+        })
+        .catch(error => {
+          this.setState({
+            isLoading: false,
+            data: null,
+            error,
           })
         })
     }
@@ -29,9 +43,5 @@ export function createFetch(fetch) {
     render() {
       return this.props.children(this.state)
     }
-  }
-
-  Fetch.propTypes = {
-    url: PropTypes.string.isRequired,
   }
 }
