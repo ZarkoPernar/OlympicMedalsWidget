@@ -1,6 +1,6 @@
 describe('default state', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3001')
+    cy.visit('http://localhost:3000')
   })
   it('should have gold medal menu item selected', () => {
     cy.get('button[aria-label=gold]').should('have.attr', 'data-test-active')
@@ -13,7 +13,7 @@ describe('default state', () => {
 
 describe('sort by total', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3001')
+    cy.visit('http://localhost:3000')
   })
   it('should have total medal menu item selected', () => {
     cy
