@@ -12,7 +12,7 @@ const styles = {
 class Menu extends Component {
   render() {
     return (
-      <div style={styles}>
+      <div style={styles} role="menu">
         <MenuButton
           name="gold"
           isActive={this.props.activeSortOption === 'gold'}

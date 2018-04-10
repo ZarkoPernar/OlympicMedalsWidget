@@ -4,5 +4,10 @@ import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'))
-registerServiceWorker()
+window.OlympicMedalWidget = function(elementId, initialSortBy) {
+  ReactDOM.render(
+    <App activeSortOption={initialSortBy} />,
+    document.getElementById(elementId)
+  )
+  registerServiceWorker()
+}

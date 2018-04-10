@@ -1,8 +1,5 @@
-.App *,
-.App *:before,
-.App *:after {
+.OlympicMedalWidget *,
+.OlympicMedalWidget *:before,
+.OlympicMedalWidget *:after {
   box-sizing: border-box;
-}
-
-.App {
 }

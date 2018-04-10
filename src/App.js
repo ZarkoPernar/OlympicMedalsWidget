@@ -19,13 +19,18 @@ const headerStyle = {
   borderBottom: '2px solid #ccc',
 }
 const headerTitleStyle = {
-  color: '#9E9E9E',
+  color: '#757575',
   fontSize: '1.35em',
   fontWeight: 400,
   margin: '0 0 .5rem',
 }
 
-const dataUrl =
+const fetchMessageStyle = {
+  padding: '1rem 2rem',
+  textTransform: 'none',
+}
+
+export const dataUrl =
   'https://s3-us-west-2.amazonaws.com/reuters.medals-widget/medals.json'
 
 export class App extends Component {
@@ -41,7 +46,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div style={styles}>
+      <div className="OlympicMedalWidget" style={styles}>
         <div style={headerStyle}>
           <h2 style={headerTitleStyle}>Medal Count</h2>
           <Menu
@@ -54,11 +59,19 @@ export class App extends Component {
           <Fetch url={dataUrl}>
             {({ isLoading, data, error }) => {
               if (isLoading) {
-                return 'Loading...'
+                return (
+                  <div data-test-id="is-loading" style={fetchMessageStyle}>
+                    Loading...
+                  </div>
+                )
               }
 
               if (error) {
-                return 'We could not load the data at this time. Try again later.'
+                return (
+                  <div data-test-id="error-message" style={fetchMessageStyle}>
+                    We could not load the data at this time. Try again later.
+                  </div>
+                )
               }
 
               return (

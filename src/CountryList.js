@@ -9,6 +9,11 @@ const countryStyle = {
 }
 
 class CountryList extends PureComponent {
+  static propTypes = {
+    sortBy: PropTypes.string.isRequired,
+    listData: PropTypes.array.isRequired,
+  }
+
   render() {
     return (
       <div>
@@ -42,10 +47,6 @@ class CountryList extends PureComponent {
       </div>
     )
   }
-}
-
-CountryList.propTypes = {
-  listData: PropTypes.array.isRequired,
 }
 
 export default CountryList
