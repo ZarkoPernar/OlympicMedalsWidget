@@ -1,6 +1,7 @@
 {
   "name": "olympicmedalswidget",
   "version": "0.1.0",
+  "main": "server.js",
   "private": true,
   "dependencies": {
     "cypress": "^2.1.0",
