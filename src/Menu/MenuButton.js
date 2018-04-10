@@ -21,6 +21,7 @@ const MenuButton = ({ name, isActive, onClick, children }) => {
       role="menuitem"
       type="button"
       aria-label={name}
+      data-test-active={isActive}
       style={isActive ? stylesWithActive : styles}
       onClick={e => onClick(name)}
     >

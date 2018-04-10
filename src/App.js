@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Menu from './Menu/index'
 import CountryList from './CountryList'
-import { createFetch, injectFetch } from './Fetch'
+import Fetch from './Fetch'
 
 const styles = {
   '--primaryColor': '#616161',
@@ -31,7 +31,6 @@ const dataUrl =
 export class App extends Component {
   state = {
     activeSortOption: this.props.activeSortOption || 'gold',
-    Fetch: createFetch(this.props.fetch),
   }
 
   onMenuSelect = menuOptionName => {
@@ -41,8 +40,6 @@ export class App extends Component {
   }
 
   render() {
-    const { Fetch } = this.state
-
     return (
       <div style={styles}>
         <div style={headerStyle}>
@@ -61,7 +58,7 @@ export class App extends Component {
               }
 
               if (error) {
-                return 'Error'
+                return 'We could not load the data at this time. Try again later.'
               }
 
               return (
@@ -78,4 +75,4 @@ export class App extends Component {
   }
 }
 
-export default injectFetch(App)
+export default App
